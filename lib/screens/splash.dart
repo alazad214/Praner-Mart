@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pranermart/screens/home_screen.dart';
+import 'package:pranermart/screens/welcome_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
@@ -16,7 +17,7 @@ class _SplashState extends State<Splash> {
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(const HomeScreen());
+      Get.offAll(()=>const WelcomeScreen());
     });
     super.initState();
   }
