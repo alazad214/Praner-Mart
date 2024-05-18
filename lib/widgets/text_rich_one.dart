@@ -12,12 +12,12 @@ class TextRichOne extends StatelessWidget {
       TextSpan(
           text: text1,
           style: const TextStyle(
-              color: Colors.black, fontSize: 20, fontWeight: FontWeight.w500)),
+              color: Colors.black, fontSize: 24, fontWeight: FontWeight.w500)),
       TextSpan(
           text: text2,
           style: const TextStyle(
               color: Colors.blueAccent,
-              fontSize: 20,
+              fontSize: 24,
               fontWeight: FontWeight.w500)),
     ]));
   }

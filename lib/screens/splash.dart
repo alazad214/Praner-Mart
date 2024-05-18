@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
 import 'package:pranermart/screens/home_screen.dart';
-import 'package:pranermart/screens/welcome_screen.dart';
+import 'package:pranermart/screens/welcomscreen/welcome_screen.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
