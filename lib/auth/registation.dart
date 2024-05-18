@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
+import 'package:pranermart/auth/login.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
 import 'package:pranermart/widgets/text_rich_two.dart';
@@ -28,18 +31,18 @@ class Ragistation extends StatelessWidget {
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Colors.black)),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "রেজিস্টার করুন",
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 22,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 30),
-                        Column(
+                        const SizedBox(height: 30),
+                        const Column(
                           children: [
                             CustomformField(
                               prefixicon: Icons.email,
@@ -59,14 +62,34 @@ class Ragistation extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
-                        CustomButton(
+                        const SizedBox(height: 20),
+                        const CustomButton(
                           text: "রেজিস্টার",
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [TextRichTwo()],
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Get.offAll(() => const LogIn());
+                              },
+                              child: const Text.rich(TextSpan(children: [
+                                TextSpan(
+                                    text: "ইতিমধ্যে কোনো অ্যাকাউন্ট আছে? ",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                    )),
+                                TextSpan(
+                                    text: "লগইন",
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 14,
+                                    )),
+                              ])),
+                            )
+                          ],
                         )
                       ],
                     ),

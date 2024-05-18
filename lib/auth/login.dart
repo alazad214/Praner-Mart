@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pranermart/auth/registation.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textField.dart';
@@ -22,24 +24,25 @@ class LogIn extends StatelessWidget {
               children: [
                 Center(
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 20),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.white,
                         borderRadius: BorderRadius.circular(20),
                         border: Border.all(color: Colors.black)),
-                    child: const Column(
+                    child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
+                        const Text(
                           "লগইন করুন",
                           style: TextStyle(
                               color: Colors.blue,
                               fontSize: 22,
                               fontWeight: FontWeight.bold),
                         ),
-                        SizedBox(height: 30),
-                        Column(
+                        const SizedBox(height: 30),
+                        const Column(
                           children: [
                             CustomformField(
                               prefixicon: Icons.email,
@@ -53,14 +56,34 @@ class LogIn extends StatelessWidget {
                             ),
                           ],
                         ),
-                        SizedBox(height: 20),
-                        CustomButton(
+                        const SizedBox(height: 20),
+                        const CustomButton(
                           text: "লগইন",
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
-                          children: [TextRichTwo()],
+                          children: [
+                            InkWell(
+                              onTap: () {
+                                Get.offAll(() => const Ragistation());
+                              },
+                              child: const Text.rich(TextSpan(children: [
+                                TextSpan(
+                                    text: "নতুন অ্যাকাউন্ট তৈরি করুন? ",
+                                    style: TextStyle(
+                                      color: Colors.black,
+                                      fontSize: 13,
+                                    )),
+                                TextSpan(
+                                    text: "রেজিস্টার",
+                                    style: TextStyle(
+                                      color: Colors.blueAccent,
+                                      fontSize: 14,
+                                    )),
+                              ])),
+                            )
+                          ],
                         )
                       ],
                     ),
