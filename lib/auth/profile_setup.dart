@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:pranermart/auth/login.dart';
-import 'package:pranermart/auth/profile_setup.dart';
+import 'package:pranermart/screens/home_screen.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
 
-class Ragistation extends StatelessWidget {
-  const Ragistation({super.key});
+class ProfileSetUP extends StatelessWidget {
+  const ProfileSetUP({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -33,66 +34,55 @@ class Ragistation extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        const Text(
-                          "রেজিস্টার করুন",
-                          style: TextStyle(
+                        Container(
+                          height: 80,
+                          width: 80,
+                          alignment: Alignment.bottomRight,
+                          decoration: const BoxDecoration(
                               color: Colors.blue,
-                              fontSize: 22,
-                              fontWeight: FontWeight.bold),
+                              shape: BoxShape.circle,
+                              image: DecorationImage(
+                                  image:
+                                      AssetImage("assets/images/profile.jpg"),
+                                  fit: BoxFit.cover)),
+                          child: Icon(
+                            Icons.camera_alt,
+                            color: Colors.blue,
+                          ),
                         ),
-                        const SizedBox(height: 30),
+                        const SizedBox(height: 15),
                         const Column(
                           children: [
+                            CustomformField(
+                              prefixicon:
+                                  Icons.drive_file_rename_outline_rounded,
+                              hinttext: "নাম",
+                            ),
+                            SizedBox(height: 10),
                             CustomformField(
                               prefixicon: Icons.email,
                               hinttext: "ইমেইল",
                             ),
                             SizedBox(height: 10),
                             CustomformField(
-                              prefixicon: Icons.remove_red_eye_sharp,
-                              hinttext: "পাসওয়ার্ড",
-                              obscuretext: true,
+                              prefixicon: Icons.phone,
+                              hinttext: "মোবাইল নাম্বার",
                             ),
                             SizedBox(height: 10),
                             CustomformField(
-                              prefixicon: Icons.remove_red_eye_sharp,
-                              hinttext: "আবার পাসওয়ার্ড",
-                              obscuretext: true,
+                              prefixicon: Icons.location_on,
+                              hinttext: "ঠিকানা",
                             ),
                           ],
                         ),
                         const SizedBox(height: 20),
-                        CustomButton(
-                          ontap: () {
-                            Get.to(() => const ProfileSetUP());
+                         CustomButton(
+                          ontap: (){
+                            Get.offAll(()=>HomeScreen());
                           },
-                          text: "রেজিস্টার",
+                          text: "সম্পন্ন করুন",
                         ),
                         const SizedBox(height: 10),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.end,
-                          children: [
-                            InkWell(
-                              onTap: () {
-                                Get.offAll(() => const LogIn());
-                              },
-                              child: const Text.rich(TextSpan(children: [
-                                TextSpan(
-                                    text: "ইতিমধ্যে কোনো অ্যাকাউন্ট আছে? ",
-                                    style: TextStyle(
-                                      color: Colors.black,
-                                      fontSize: 13,
-                                    )),
-                                TextSpan(
-                                    text: "লগইন",
-                                    style: TextStyle(
-                                      color: Colors.blueAccent,
-                                      fontSize: 14,
-                                    )),
-                              ])),
-                            )
-                          ],
-                        )
                       ],
                     ),
                   ),
