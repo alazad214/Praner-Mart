@@ -51,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
                           Expanded(
                               child: InkWell(
                             onTap: () {
-                              Get.to(()=>const LogIn());
+                              Get.to(() => const LogIn());
                             },
                             child: Container(
                               decoration: const BoxDecoration(
@@ -73,24 +73,24 @@ class WelcomeScreen extends StatelessWidget {
                           ),
                           Expanded(
                               child: InkWell(
-                                onTap: (){
-                                  Get.to(()=>const Ragistation());
-                                },
-                                child: Container(
-                                                            decoration: const BoxDecoration(
+                            onTap: () {
+                              Get.to(() => const Ragistation());
+                            },
+                            child: Container(
+                              decoration: const BoxDecoration(
                                 color: Colors.blue,
-                                                            ),
-                                                            height: 60,
-                                                            alignment: Alignment.center,
-                                                            child: const Text(
+                              ),
+                              height: 60,
+                              alignment: Alignment.center,
+                              child: const Text(
                                 "রেজিস্টার",
                                 style: TextStyle(
                                     color: Colors.black,
                                     fontSize: 16,
                                     fontWeight: FontWeight.bold),
-                                                            ),
-                                                          ),
-                              )),
+                              ),
+                            ),
+                          )),
                         ],
                       ),
                     )
