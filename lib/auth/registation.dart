@@ -21,7 +21,8 @@ class Ragistation extends StatelessWidget {
               children: [
                 Center(
                   child: Container(
-                    padding: EdgeInsets.symmetric(vertical: 20, horizontal: 20),
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 20, horizontal: 20),
                     width: double.infinity,
                     decoration: BoxDecoration(
                         color: Colors.white,
@@ -50,10 +51,18 @@ class Ragistation extends StatelessWidget {
                               hinttext: "পাসওয়ার্ড",
                               obscuretext: true,
                             ),
+                            SizedBox(height: 10),
+                            CustomformField(
+                              prefixicon: Icons.remove_red_eye_sharp,
+                              hinttext: "আবার পাসওয়ার্ড",
+                              obscuretext: true,
+                            ),
                           ],
                         ),
                         SizedBox(height: 20),
-                        CustomButton(),
+                        CustomButton(
+                          text: "রেজিস্টার",
+                        ),
                         SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.end,
