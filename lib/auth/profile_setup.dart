@@ -1,12 +1,12 @@
 import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pranermart/screens/home_screen.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
+
+import '../screens/navigation_screen.dart';
 
 class ProfileSetUP extends StatefulWidget {
   ProfileSetUP({super.key});
@@ -120,7 +120,7 @@ class _ProfileSetUPState extends State<ProfileSetUP> {
                         const SizedBox(height: 20),
                         CustomButton(
                           ontap: () {
-                            Get.offAll(() => HomeScreen());
+                            Get.offAll(() => NavigationScreen());
                           },
                           text: "সম্পন্ন করুন",
                         ),
