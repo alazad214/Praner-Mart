@@ -8,17 +8,20 @@ class CustomTextIcon extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        Text(
-          text ?? "",
-          style: TextStyle(
-            color: Colors.blueAccent,
+    return Padding(
+      padding: EdgeInsets.symmetric(horizontal: 20),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        children: [
+          Text(
+            text ?? "",
+            style: TextStyle(
+              color: Colors.blueAccent,
+            ),
           ),
-        ),
-        IconButton(onPressed: () {}, icon: Icon(icon))
-      ],
+          IconButton(onPressed: () {}, icon: Icon(icon))
+        ],
+      ),
     );
   }
 }

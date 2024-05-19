@@ -17,7 +17,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
   var _currentIndex = 0;
 
   final _pages = [
-    const HomeScreen(),
+     HomeScreen(),
     const CartScreen(),
     const FavioriteScreen(),
     const ProfileScreen()

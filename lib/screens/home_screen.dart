@@ -1,18 +1,22 @@
-import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:pranermart/widgets/category.dart';
 import 'package:pranermart/widgets/custom_slider.dart';
-import 'package:pranermart/widgets/custom_textField.dart';
 import 'package:pranermart/widgets/search_bar.dart';
+import 'package:pranermart/widgets/search_dialog.dart';
+import 'package:pranermart/widgets/single_product.dart';
 import 'package:pranermart/widgets/text_icon_widgets.dart';
 
 import '../widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
-  const HomeScreen({super.key});
+  HomeScreen({super.key});
+  final controller = Get.put(SearchDialog());
 
   @override
   Widget build(BuildContext context) {
+    final h = MediaQuery.of(context).size.height;
+    final w = MediaQuery.of(context).size.width;
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.blue.withOpacity(0.6),
@@ -21,31 +25,69 @@ class HomeScreen extends StatelessWidget {
         ],
       ),
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.symmetric(horizontal: 20),
-        child: SingleChildScrollView(
-          child: Column(
-            children: [
-              CustomSlider(),
-              CustomSearchBar(),
-              SizedBox(height: 20),
-              CustomTextIcon(
-                text: "Category",
-                icon: Icons.arrow_forward,
-              ),
-              Category(),
-              SizedBox(height: 20),
-              Row(
+          child: SingleChildScrollView(
+        child: Column(
+          children: [
+            CustomSlider(),
+            CustomSearchBar(
+              ontap: () {
+                controller.SearchItemDialog(context);
+              },
+            ),
+            SizedBox(height: 20),
+            CustomTextIcon(
+              text: "Category",
+              icon: Icons.arrow_forward,
+            ),
+            Category(),
+            SizedBox(height: 20),
+            Padding(
+              padding: EdgeInsets.symmetric(horizontal: 20),
+              child: Row(
                 children: [
-                  Text("Best Selling", style: TextStyle(
-                    color: Colors.black,
-                    fontSize: 20,
-                    fontWeight: FontWeight.w500
-                  ),)
+                  Text(
+                    "Best Selling",
+                    style: TextStyle(
+                        color: Colors.black,
+                        fontSize: 20,
+                        fontWeight: FontWeight.w500),
+                  ),
                 ],
-              )
-            ],
-          ),
+              ),
+            ),
+            SizedBox(height: 20),
+            SingleProduct(),
+            SizedBox(height: 20),
+            Container(
+              decoration: BoxDecoration(color: Colors.blueAccent),
+              child: Wrap(
+                children: [
+                  Container(
+                    child: Column(
+                      children: [
+                        Padding(
+                          padding: EdgeInsets.symmetric(horizontal: 5),
+                          child: Row(
+                            children: [
+                              Image.asset(
+                                "assets/images/applogo.png",
+                                height: h / 7,
+                              ),
+                              Expanded(
+                                child: Text(
+                                  "Welcome to PranerMart - Your Ultimate Shopping Destination in Bangladesh!",
+                                ),
+                              )
+                            ],
+                          ),
+                        )
+                      ],
+                    ),
+                  )
+                ],
+              ),
+            )
+          ],
         ),
       )),
       drawer: CustomDrawer(),
