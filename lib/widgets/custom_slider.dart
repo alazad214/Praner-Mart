@@ -1,7 +1,5 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class CustomSlider extends StatelessWidget {
@@ -26,7 +24,7 @@ class CustomSlider extends StatelessWidget {
               height: 140,
               fit: BoxFit.cover,
               imageUrl:
-                  "https://www.thestatesman.com/wp-content/uploads/2019/03/e-comm.jpg",
+                  "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-a057flvhbkd/gallery/bd-galaxy-a05s-sm-a057-sm-a057flvhbkd-thumb-539556309?",
               placeholder: (context, url) =>
                   const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => Icon(Icons.error),
