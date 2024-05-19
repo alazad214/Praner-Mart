@@ -46,6 +46,8 @@ dependencies:
   cloud_firestore: ^4.15.8
   firebase_messaging: ^14.7.19
   shared_preferences:
+  image_picker:
+  salomon_bottom_bar: ^3.3.2
 
 dev_dependencies:
   flutter_test:

@@ -1,13 +1,28 @@
+import 'dart:io';
+
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
-import 'package:pranermart/auth/login.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:pranermart/screens/home_screen.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
 
-class ProfileSetUP extends StatelessWidget {
-  const ProfileSetUP({super.key});
+class ProfileSetUP extends StatefulWidget {
+  ProfileSetUP({super.key});
+
+  @override
+  State<ProfileSetUP> createState() => _ProfileSetUPState();
+}
+
+class _ProfileSetUPState extends State<ProfileSetUP> {
+  final ImagePicker picker = ImagePicker();
+  XFile? image;
+  List<XFile>? images;
+  formGallery() async {
+    image = await picker.pickImage(source: ImageSource.gallery);
+    setState(() {});
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,22 +49,49 @@ class ProfileSetUP extends StatelessWidget {
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Container(
-                          height: 80,
-                          width: 80,
-                          alignment: Alignment.bottomRight,
-                          decoration: const BoxDecoration(
-                              color: Colors.blue,
-                              shape: BoxShape.circle,
-                              image: DecorationImage(
-                                  image:
-                                      AssetImage("assets/images/profile.jpg"),
-                                  fit: BoxFit.cover)),
-                          child: Icon(
-                            Icons.camera_alt,
-                            color: Colors.blue,
+                        if (image == null)
+                          InkWell(
+                            onTap: () {
+                              formGallery();
+                            },
+                            child: Container(
+                              height: 80,
+                              width: 80,
+                              alignment: Alignment.bottomRight,
+                              decoration: const BoxDecoration(
+                                  color: Colors.blue,
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: AssetImage(
+                                          "assets/images/profile.jpg"),
+                                      fit: BoxFit.cover)),
+                              child: Icon(
+                                Icons.camera_alt,
+                                color: Colors.blue,
+                              ),
+                            ),
+                          )
+                        else
+                          InkWell(
+                            onTap: () {
+                              formGallery();
+                            },
+                            child: Container(
+                              height: 80,
+                              width: 80,
+                              alignment: Alignment.bottomRight,
+                              decoration: BoxDecoration(
+                                  color: Colors.blue,
+                                  shape: BoxShape.circle,
+                                  image: DecorationImage(
+                                      image: FileImage(File(image!.path)),
+                                      fit: BoxFit.cover)),
+                              child: Icon(
+                                Icons.camera_alt,
+                                color: Colors.blue,
+                              ),
+                            ),
                           ),
-                        ),
                         const SizedBox(height: 15),
                         const Column(
                           children: [
@@ -76,9 +118,9 @@ class ProfileSetUP extends StatelessWidget {
                           ],
                         ),
                         const SizedBox(height: 20),
-                         CustomButton(
-                          ontap: (){
-                            Get.offAll(()=>HomeScreen());
+                        CustomButton(
+                          ontap: () {
+                            Get.offAll(() => HomeScreen());
                           },
                           text: "সম্পন্ন করুন",
                         ),

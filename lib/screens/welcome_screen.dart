@@ -4,7 +4,7 @@ import 'package:lottie/lottie.dart';
 import 'package:pranermart/auth/login.dart';
 import 'package:pranermart/auth/registation.dart';
 
-import '../../widgets/text_rich_one.dart';
+import '../widgets/text_rich_one.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});

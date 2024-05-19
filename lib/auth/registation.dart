@@ -64,7 +64,7 @@ class Ragistation extends StatelessWidget {
                         const SizedBox(height: 20),
                         CustomButton(
                           ontap: () {
-                            Get.to(() => const ProfileSetUP());
+                            Get.to(() => ProfileSetUP());
                           },
                           text: "রেজিস্টার",
                         ),
