@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:pranermart/utils/payment_method.dart';
 import 'package:pranermart/widgets/category.dart';
 import 'package:pranermart/widgets/custom_slider.dart';
 import 'package:pranermart/widgets/search_bar.dart';
@@ -80,6 +81,19 @@ class HomeScreen extends StatelessWidget {
                               )
                             ],
                           ),
+                        ),
+                        Text("Payment Method"),
+                        SizedBox(height: 15),
+                        Wrap(
+                          spacing: 10,
+                          runSpacing: 10,
+                          children: [
+                            for (int i = 0; i < PaymentData.length; i++)
+                              Image.asset(
+                                PaymentData[i],
+                                height: 60,
+                              )
+                          ],
                         )
                       ],
                     ),
