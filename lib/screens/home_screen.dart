@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/utils/payment_method.dart';
 import 'package:pranermart/widgets/category.dart';
+import 'package:pranermart/widgets/contact_ui.dart';
 import 'package:pranermart/widgets/custom_slider.dart';
 import 'package:pranermart/widgets/search_bar.dart';
 import 'package:pranermart/widgets/search_dialog.dart';
@@ -82,7 +83,10 @@ class HomeScreen extends StatelessWidget {
                             ],
                           ),
                         ),
-                        Text("Payment Method"),
+                        Text(
+                          "Payment Method",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
                         SizedBox(height: 15),
                         Wrap(
                           spacing: 10,
@@ -94,7 +98,12 @@ class HomeScreen extends StatelessWidget {
                                 height: 60,
                               )
                           ],
-                        )
+                        ),
+                        Text(
+                          "Follow Us",
+                          style: TextStyle(color: Colors.white, fontSize: 18),
+                        ),
+                        Contact_mobile()
                       ],
                     ),
                   )
