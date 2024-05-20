@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/route_manager.dart';
 
+import '../controllers/auth_controller.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({super.key});
-
+  final controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -26,7 +29,9 @@ class CustomDrawer extends StatelessWidget {
             },
           ),
           customListtile(Icons.settings, "S E T T I N G S", () {}),
-          customListtile(Icons.logout, "L O G  O U T", () {}),
+          customListtile(Icons.logout, "L O G  O U T", () {
+            controller.signOut();
+          }),
         ],
       ),
     );

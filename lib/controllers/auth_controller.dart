@@ -48,6 +48,16 @@ class AuthController extends GetxController {
       Get.snackbar("Error", error.message ?? "Something Wrong");
     }
   }
+  Future signOut() async {
+    FirebaseAuth _auth = FirebaseAuth.instance;
+    try {
+      await _auth.signOut().then((value) {
+        Get.offAll(LogInScreen());
+      });
+    } on FirebaseAuthException catch (e) {
+      Get.snackbar("Error", e.message ?? "something wrong");
+    }
+  }
 
 
 }
