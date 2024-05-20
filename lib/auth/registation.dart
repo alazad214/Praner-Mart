@@ -1,12 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/auth/login.dart';
-import 'package:pranermart/auth/profile_setup.dart';
+import 'package:pranermart/controllers/auth_controller.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
 
 class Ragistation extends StatelessWidget {
-  const Ragistation({super.key});
+  Ragistation({super.key});
+  final _emailformkey = GlobalKey<FormState>();
+  final _passformkey = GlobalKey<FormState>();
+  final controller = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -41,32 +44,63 @@ class Ragistation extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 30),
-                        const Column(
+                        Column(
                           children: [
-                            CustomformField(
-                              prefixicon: Icons.email,
-                              hinttext: "ইমেইল",
+                            Form(
+                              key: _emailformkey,
+                              child: CustomformField(
+                                prefixicon: Icons.email,
+                                hinttext: "ইমেইল",
+                                onchanged: (emeil) {
+                                  controller.email.value = emeil;
+                                },
+                                validation: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Fill The Form";
+                                  }
+                                  return null;
+                                },
+                              ),
                             ),
                             SizedBox(height: 10),
-                            CustomformField(
-                              prefixicon: Icons.remove_red_eye_sharp,
-                              hinttext: "পাসওয়ার্ড",
-                              obscuretext: true,
+                            Form(
+                              key: _passformkey,
+                              child: CustomformField(
+                                prefixicon: Icons.remove_red_eye_sharp,
+                                hinttext: "পাসওয়ার্ড",
+                                obscuretext: true,
+                                onchanged: (password) {
+                                  controller.password.value = password;
+                                },
+                                validation: (value) {
+                                  if (value!.isEmpty) {
+                                    return "Fill The Form";
+                                  }
+                                  return null;
+                                },
+                              ),
                             ),
                             SizedBox(height: 10),
                             CustomformField(
                               prefixicon: Icons.remove_red_eye_sharp,
                               hinttext: "আবার পাসওয়ার্ড",
                               obscuretext: true,
+                              onchanged: (confirmpassword) {
+                                controller.confirmpassword.value =
+                                    confirmpassword;
+                              },
                             ),
                           ],
                         ),
                         const SizedBox(height: 20),
                         CustomButton(
-                          ontap: () {
-                            Get.to(() => ProfileSetUP());
-                          },
                           text: "রেজিস্টার",
+                          ontap: () {
+                            if (_emailformkey.currentState!.validate() &&
+                                _passformkey.currentState!.validate()) {
+                              controller.Register();
+                            }
+                          },
                         ),
                         const SizedBox(height: 10),
                         Row(

@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "874990207727",
+    "project_id": "curious-athlete-417715",
+    "storage_bucket": "curious-athlete-417715.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:874990207727:android:296435e745dca5076a911a",
+        "android_client_info": {
+          "package_name": "com.example.pranermart"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBmwDwk0mLLp0nzXYcpWO2d8amj1ju5Uog"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

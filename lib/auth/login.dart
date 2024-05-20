@@ -4,7 +4,7 @@ import 'package:pranermart/auth/registation.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textField.dart';
-import '../widgets/text_rich_two.dart';
+
 
 class LogIn extends StatelessWidget {
   const LogIn({super.key});
@@ -66,7 +66,7 @@ class LogIn extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.offAll(() => const Ragistation());
+                                Get.offAll(() =>  Ragistation());
                               },
                               child: const Text.rich(TextSpan(children: [
                                 TextSpan(
