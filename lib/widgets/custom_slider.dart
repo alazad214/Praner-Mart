@@ -1,5 +1,6 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
 class CustomSlider extends StatelessWidget {
@@ -7,32 +8,50 @@ class CustomSlider extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.symmetric(horizontal: 20),
-      child: Card(
-        color: Colors.blue.withOpacity(0.6),
-        margin: EdgeInsets.symmetric(vertical: 15),
-        child: CarouselSlider.builder(
-            itemCount: 5,
-            options: CarouselOptions(
-              autoPlay: true,
-              enlargeCenterPage: true,
-              enlargeFactor: 0.3,
-              height: 150,
+    return StreamBuilder(
+        stream: FirebaseFirestore.instance.collection("sliders").snapshots(),
+        builder: (context, snapshot) {
+          if (snapshot.connectionState == ConnectionState.waiting) {
+            return const CircularProgressIndicator();
+          }
+
+          return Container(
+            margin: EdgeInsets.symmetric(vertical: 15),
+            height: 140,
+            clipBehavior: Clip.antiAlias,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
             ),
-            itemBuilder:
-                (BuildContext context, int itemIndex, int pageViewIndex) {
-              return CachedNetworkImage(
-                height: 140,
-                fit: BoxFit.cover,
-                imageUrl:
-                    "https://images.samsung.com/is/image/samsung/p6pim/bd/sm-a057flvhbkd/gallery/bd-galaxy-a05s-sm-a057-sm-a057flvhbkd-thumb-539556309?",
-                placeholder: (context, url) =>
-                    const Center(child: CircularProgressIndicator()),
-                errorWidget: (context, url, error) => Icon(Icons.error),
-              );
-            }),
-      ),
-    );
+            child: CarouselSlider.builder(
+                itemCount: snapshot.data!.docs.length,
+                options: CarouselOptions(
+                  autoPlay: true,
+                  enlargeCenterPage: true,
+                  enlargeFactor: 0.3,
+                  height: 140,
+                ),
+                itemBuilder:
+                    (BuildContext context, int itemIndex, int pageViewIndex) {
+                  final data = snapshot.data!.docs[itemIndex];
+
+                  return Container(
+                    height: 140,
+                    clipBehavior: Clip.antiAlias,
+                    decoration: BoxDecoration(
+                        color: Colors.blueAccent,
+                        borderRadius: BorderRadius.circular(15)),
+                    child: CachedNetworkImage(
+                      height: 140,
+                      width: double.infinity,
+                      imageUrl: data["image"],
+                      fit: BoxFit.cover,
+                      placeholder: (context, url) =>
+                          const Center(child: CircularProgressIndicator()),
+                      errorWidget: (context, url, error) => Icon(Icons.error),
+                    ),
+                  );
+                }),
+          );
+        });
   }
 }
