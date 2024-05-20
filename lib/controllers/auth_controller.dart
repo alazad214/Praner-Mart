@@ -1,6 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/auth/profile_setup.dart';
+import 'package:pranermart/screens/navigation_screen.dart';
+
+import '../auth/login.dart';
 
 class AuthController extends GetxController {
   RxString email = RxString("");
@@ -29,5 +32,22 @@ class AuthController extends GetxController {
       Get.snackbar("Error", error.message ?? "Something Wrong");
     }
   }
+
+  LogIn() async {
+    try {
+      await auth
+          .signInWithEmailAndPassword(
+              email: email.value, password: password.value)
+          .then((value) {
+        if (value.user != null) {
+          Get.offAll(NavigationScreen());
+          Get.snackbar("Seccess", "Login Successfully");
+        }
+      });
+    } on FirebaseAuthException catch (error) {
+      Get.snackbar("Error", error.message ?? "Something Wrong");
+    }
+  }
+
 
 }

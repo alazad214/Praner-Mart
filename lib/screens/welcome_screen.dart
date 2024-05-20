@@ -51,7 +51,7 @@ class WelcomeScreen extends StatelessWidget {
                           Expanded(
                               child: InkWell(
                             onTap: () {
-                              Get.to(() => const LogIn());
+                              Get.to(() =>  LogInScreen());
                             },
                             child: Container(
                               decoration: const BoxDecoration(

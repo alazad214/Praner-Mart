@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/auth/registation.dart';
+import 'package:pranermart/controllers/auth_controller.dart';
 
 import '../widgets/custom_button.dart';
 import '../widgets/custom_textField.dart';
 
-
-class LogIn extends StatelessWidget {
-  const LogIn({super.key});
-
+class LogInScreen extends StatelessWidget {
+  LogInScreen({super.key});
+  final controller = Get.put(AuthController());
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
@@ -42,23 +42,32 @@ class LogIn extends StatelessWidget {
                               fontWeight: FontWeight.bold),
                         ),
                         const SizedBox(height: 30),
-                        const Column(
+                        Column(
                           children: [
                             CustomformField(
                               prefixicon: Icons.email,
                               hinttext: "ইমেইল",
+                              onchanged: (value) {
+                                controller.email.value = value;
+                              },
                             ),
                             SizedBox(height: 10),
                             CustomformField(
                               prefixicon: Icons.remove_red_eye_sharp,
                               hinttext: "পাসওয়ার্ড",
                               obscuretext: true,
+                              onchanged: (value) {
+                                controller.password.value = value;
+                              },
                             ),
                           ],
                         ),
                         const SizedBox(height: 20),
-                        const CustomButton(
+                        CustomButton(
                           text: "লগইন",
+                          ontap: () {
+                            controller.LogIn();
+                          },
                         ),
                         const SizedBox(height: 10),
                         Row(
@@ -66,7 +75,7 @@ class LogIn extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.offAll(() =>  Ragistation());
+                                Get.offAll(() => Ragistation());
                               },
                               child: const Text.rich(TextSpan(children: [
                                 TextSpan(

@@ -108,7 +108,7 @@ class Ragistation extends StatelessWidget {
                           children: [
                             InkWell(
                               onTap: () {
-                                Get.offAll(() => const LogIn());
+                                Get.offAll(() =>  LogInScreen());
                               },
                               child: const Text.rich(TextSpan(children: [
                                 TextSpan(
