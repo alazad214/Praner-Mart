@@ -1,9 +1,8 @@
 import 'dart:async';
-
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:lottie/lottie.dart';
-import 'package:pranermart/screens/home_screen.dart';
+import 'package:pranermart/screens/navigation_screen.dart';
 import 'package:pranermart/screens/welcome_screen.dart';
 
 class Splash extends StatefulWidget {
@@ -14,10 +13,16 @@ class Splash extends StatefulWidget {
 }
 
 class _SplashState extends State<Splash> {
+  final user = FirebaseAuth.instance.currentUser;
+
   @override
   void initState() {
     Timer(const Duration(seconds: 3), () {
-      Get.offAll(()=>const WelcomeScreen());
+      if (user == null) {
+        Get.off(const WelcomeScreen());
+      } else {
+        Get.offAll(NavigationScreen());
+      }
     });
     super.initState();
   }
@@ -34,8 +39,11 @@ class _SplashState extends State<Splash> {
               height: screenSize.height / 1,
               alignment: Alignment.center,
               child: Center(
-                  child:
-                      Lottie.asset("assets/animations/anim.json", height: 100)),
+                child: Image.asset(
+                  "assets/images/applogo.png",
+                  height: 200,
+                ),
+              ),
             )
           ],
         )),

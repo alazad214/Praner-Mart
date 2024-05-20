@@ -28,7 +28,6 @@ class CustomDrawer extends StatelessWidget {
               Navigator.pop(context);
             },
           ),
-          customListtile(Icons.settings, "S E T T I N G S", () {}),
           customListtile(Icons.logout, "L O G  O U T", () {
             controller.signOut();
           }),
