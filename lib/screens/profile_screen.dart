@@ -1,8 +1,13 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:get/get_core/src/get_main.dart';
 import 'package:pranermart/widgets/profile_listTile.dart';
 
+import '../controllers/auth_controller.dart';
+
 class ProfileScreen extends StatelessWidget {
-  const ProfileScreen({super.key});
+   ProfileScreen({super.key});
+  final controller = Get.put(AuthController());
 
   @override
   Widget build(BuildContext context) {
@@ -74,6 +79,9 @@ class ProfileScreen extends StatelessWidget {
                   ProfileListtile(
                     icon: Icons.logout,
                     title: "Log Out",
+                    ontap: (){
+                      controller.signOut();
+                    },
                   )
                 ],
               ),

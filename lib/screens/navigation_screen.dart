@@ -20,7 +20,7 @@ class _NavigationScreenState extends State<NavigationScreen> {
      HomeScreen(),
     const CartScreen(),
     const FavioriteScreen(),
-    const ProfileScreen()
+     ProfileScreen()
   ];
 
   @override
