@@ -12,7 +12,16 @@ class CustomSlider extends StatelessWidget {
         stream: FirebaseFirestore.instance.collection("sliders").snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
-            return const CircularProgressIndicator();
+            return Container(
+              height: 140,
+              alignment: Alignment.center,
+              margin: EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              width: double.infinity,
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(15),
+              ),
+              child: CircularProgressIndicator(),
+            );
           }
 
           return Container(
