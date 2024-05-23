@@ -7,12 +7,14 @@ class ProfileListtile extends StatelessWidget {
     this.title,
     this.subtitle,
     this.icon,
+    this.arrowicon,
     this.ontap,
   }) : super(key: key);
 
   final String? title;
   final String? subtitle;
   final IconData? icon;
+  final IconData? arrowicon;
   final VoidCallback? ontap;
 
   @override
@@ -20,9 +22,10 @@ class ProfileListtile extends StatelessWidget {
     return InkWell(
       onTap: ontap,
       child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 5,),
+          margin: const EdgeInsets.symmetric(
+            vertical: 5,
+          ),
           padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
-
           decoration: BoxDecoration(
             color: Colors.blue.withOpacity(0.1),
             border: Border.all(color: Colors.white38),
@@ -32,8 +35,8 @@ class ProfileListtile extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               CircleAvatar(child: Icon(icon ?? Icons.add)),
-               Text(
-                title?? "",
+              Text(
+                title ?? "",
                 style: TextStyle(
                   fontSize: 18.0,
                 ),
@@ -41,7 +44,10 @@ class ProfileListtile extends StatelessWidget {
               SizedBox(),
               SizedBox(),
               SizedBox(),
-              Icon(Icons.arrow_forward_ios_outlined)
+              Icon(
+                arrowicon,
+                color: Colors.green,
+              )
             ],
           )),
     );
