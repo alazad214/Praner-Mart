@@ -9,7 +9,7 @@ import 'package:pranermart/widgets/search_dialog.dart';
 import 'package:pranermart/widgets/single_product.dart';
 import 'package:pranermart/widgets/text_icon_widgets.dart';
 
-import '../widgets/custom_drawer.dart';
+import '../../widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
