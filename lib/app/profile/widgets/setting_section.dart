@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-
+import 'package:pranermart/app/profile/views/settings_screen.dart';
 import 'custom_listtile.dart';
 
 class SettingSection extends StatelessWidget {
@@ -32,6 +33,7 @@ class SettingSection extends StatelessWidget {
             CustomListtile(
               title: 'Settings',
               leading: Iconsax.setting,
+              ontap: ()=>Get.to(()=>SettingsScreen()),
             ),
           ],
         ),

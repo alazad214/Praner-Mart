@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:pranermart/app/profile/views/order_history_screen.dart';
 import 'custom_listtile.dart';
 
 class OderHistory extends StatelessWidget {
@@ -23,6 +25,7 @@ class OderHistory extends StatelessWidget {
         child: CustomListtile(
           title: 'Order History',
           leading: Icons.payment,
+          ontap: ()=>Get.to(()=>OrderHistoryScreen()),
         ),
       ),
     );

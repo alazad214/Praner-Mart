@@ -2,9 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:pranermart/utils/colors.dart';
 
 class CustomListtile extends StatelessWidget {
-  const CustomListtile({super.key, this.title, this.leading});
+  const CustomListtile({super.key, this.title, this.leading, this.ontap});
   final title;
   final leading;
+  final ontap;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class CustomListtile extends StatelessWidget {
       leading: Icon(leading ?? Icons.notifications),
       title: Text(title ?? ""),
       trailing: Icon(Icons.arrow_forward_ios, color: AppColor.primary),
-      onTap: () {},
+      onTap: ontap,
     );
   }
 }

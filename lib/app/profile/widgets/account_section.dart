@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:pranermart/app/profile/views/notifications_screen.dart';
+import 'package:pranermart/app/profile/views/payment_screen.dart';
 import 'package:pranermart/app/profile/widgets/custom_listtile.dart';
 
 class AccountSection extends StatelessWidget {
@@ -26,11 +29,13 @@ class AccountSection extends StatelessWidget {
             CustomListtile(
               title: 'Notifications',
               leading: Iconsax.notification,
+              ontap: () => Get.to(() => NotificationsScreen()),
             ),
             Divider(height: 1, color: Colors.grey[300]),
             CustomListtile(
               title: 'Payment Methods',
               leading: Iconsax.dollar_circle,
+              ontap: () => Get.to(() => PaymentMethodScreen()),
             ),
           ],
         ),

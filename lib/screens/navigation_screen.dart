@@ -19,8 +19,8 @@ class _NavigationScreenState extends State<NavigationScreen> {
 
   final _pages = [
     HomeScreen(),
-    const CartScreen(),
-    const FavioriteScreen(),
+     CartScreen(),
+    FavioriteScreen(),
     ProfileScreen()
   ];
 
