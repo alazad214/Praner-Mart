@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:lottie/lottie.dart';
-import 'package:pranermart/auth/login.dart';
-import 'package:pranermart/auth/registation.dart';
+import 'package:pranermart/utils/app_config.dart';
 import 'package:pranermart/utils/colors.dart';
-import 'package:pranermart/widgets/button1.dart';
+import 'package:pranermart/widgets/custom_button.dart';
 import '../../widgets/text_rich_one.dart';
+import '../auth/views/login.dart';
+import '../auth/views/registation.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -36,8 +37,7 @@ class WelcomeScreen extends StatelessWidget {
                 ),
 
                 ///Welcome Description...
-                Text(
-                    "First order on Pranermart app will get complete delivery charge free. Any of your products will be delivered within a maximum of 5 days and a minimum of 1 day. in our",
+                Text(AppConfig.welcomeDescription,
                     textAlign: TextAlign.center,
                     style: TextStyle(
                       color: Colors.white.withOpacity(0.5),
@@ -50,19 +50,23 @@ class WelcomeScreen extends StatelessWidget {
                   padding: const EdgeInsets.symmetric(horizontal: 10),
                   child: Row(
                     children: [
-                      Button1(
-                        text: 'LOG IN',
-                        borderRadius: BorderRadius.circular(0),
-                        ontap: () => Get.to(() => LogInScreen()),
+                      Expanded(
+                        child: CustomButton(
+                          text: 'LOG IN',
+                          borderRadius: BorderRadius.circular(0),
+                          ontap: () => Get.to(() => LogInScreen()),
+                        ),
                       ),
                       const SizedBox(
                         width: 10,
                       ),
-                      Button1(
-                        text: 'SIGN UP',
-                        borderRadius: BorderRadius.circular(0),
-                        bgColor: AppColor.moonstone,
-                        ontap: () => Get.to(() => Ragistation()),
+                      Expanded(
+                        child: CustomButton(
+                          text: 'SIGN UP',
+                          borderRadius: BorderRadius.circular(0),
+                          bgColor: AppColor.moonstone,
+                          ontap: () => Get.to(() => Register()),
+                        ),
                       ),
                     ],
                   ),

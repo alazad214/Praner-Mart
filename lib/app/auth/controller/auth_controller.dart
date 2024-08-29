@@ -1,9 +1,10 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/auth/profile_setup.dart';
+
 import 'package:pranermart/screens/navigation_screen.dart';
 
-import '../auth/login.dart';
+import '../views/login.dart';
+import '../views/profile_setup.dart';
 
 class AuthController extends GetxController {
   RxString email = RxString("");
@@ -48,6 +49,7 @@ class AuthController extends GetxController {
       Get.snackbar("Error", error.message ?? "Something Wrong");
     }
   }
+
   Future signOut() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     try {
@@ -58,6 +60,4 @@ class AuthController extends GetxController {
       Get.snackbar("Error", e.message ?? "something wrong");
     }
   }
-
-
 }

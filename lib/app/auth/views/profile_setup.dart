@@ -3,13 +3,12 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_storage/firebase_storage.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:pranermart/controllers/profile_controller.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
 
-import '../screens/navigation_screen.dart';
+import '../../profile/controller/profile_controller.dart';
+
 
 class ProfileSetUP extends StatefulWidget {
   ProfileSetUP({super.key});

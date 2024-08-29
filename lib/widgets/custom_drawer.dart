@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/route_manager.dart';
 
-import '../controllers/auth_controller.dart';
+import '../app/auth/controller/auth_controller.dart';
 
 class CustomDrawer extends StatelessWidget {
   CustomDrawer({super.key});
