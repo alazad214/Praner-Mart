@@ -7,23 +7,26 @@ class CustomformField extends StatelessWidget {
       this.prefixicon,
       this.validation,
       this.obscuretext,
-      this.onchanged});
+      this.onchanged,
+      this.inputType});
 
   final hinttext;
   final IconData? prefixicon;
   final validation;
   final obscuretext;
   final onchanged;
+  final inputType;
 
   @override
   Widget build(BuildContext context) {
     return TextFormField(
       onChanged: onchanged,
       validator: validation,
+      textInputAction: TextInputAction.next,
       obscureText: obscuretext ?? false,
+      keyboardType: inputType,
       decoration: InputDecoration(
         hintText: hinttext,
-
         prefixIcon: Icon(prefixicon),
         filled: true,
         fillColor: Colors.white,
@@ -45,6 +48,13 @@ class CustomformField extends StatelessWidget {
         errorBorder: OutlineInputBorder(
           borderSide: const BorderSide(
             color: Colors.red,
+            width: 2,
+          ),
+          borderRadius: BorderRadius.circular(14.0),
+        ),
+        focusedErrorBorder: OutlineInputBorder(
+          borderSide: const BorderSide(
+            color: Colors.blue,
             width: 2,
           ),
           borderRadius: BorderRadius.circular(14.0),

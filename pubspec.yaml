@@ -51,6 +51,7 @@ dependencies:
   salomon_bottom_bar: ^3.3.2
   cached_network_image: ^3.3.1
   flutter_svg: ^2.0.5
+  iconsax: ^0.0.8
 
 
 
@@ -76,10 +77,6 @@ flutter_launcher_icons:
       macos:
         generate: true
         image_path: "assets/images/logo.png"
-
-
-
-
 
   # The "flutter_lints" package below contains a set of recommended lints to
   # encourage good coding practices. The lint set provided by the package is

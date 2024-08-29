@@ -26,7 +26,7 @@ class AuthController extends GetxController {
               email: email.value, password: password.value)
           .then((value) {
         if (value.user != null) {
-          Get.offAll(ProfileSetUP());
+          Get.offAll(ProfileSetup());
         }
       });
     } on FirebaseAuthException catch (error) {

@@ -1,15 +1,16 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/auth/utils/inputValidator.dart';
-import 'package:pranermart/widgets/custom_textField.dart';
+import 'package:pranermart/utils/colors.dart';
+import 'package:pranermart/widgets/back_floatingButton.dart';
+import 'package:pranermart/widgets/custom_button.dart';
+import '../../../widgets/custom_textField.dart';
+import '../../../widgets/text_rich_one.dart';
+import '../controller/auth_controller.dart';
+import '../utils/inputValidator.dart';
 
-import '../../../utils/colors.dart';
-import '../../../widgets/custom_button.dart';
-import '../../profile/controller/profile_controller.dart';
-
-class ProfileSetup extends StatelessWidget {
-  ProfileSetup({super.key});
-  final controller = Get.put(ProfileController());
+class ForgetPassword extends StatelessWidget {
+  ForgetPassword({super.key});
+  final controller = Get.put(AuthController());
   final formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -26,7 +27,7 @@ class ProfileSetup extends StatelessWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 40, horizontal: 20),
+                          vertical: 30, horizontal: 20),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: AppColor.cornsilk,
@@ -37,7 +38,7 @@ class ProfileSetup extends StatelessWidget {
                         children: [
                           ///Title...
                           Text(
-                            "PROFILE SETUP",
+                            "FORGET NOW",
                             style: TextStyle(
                                 color: AppColor.yaleBlue,
                                 fontSize: 22,
@@ -45,61 +46,46 @@ class ProfileSetup extends StatelessWidget {
                           ),
                           SizedBox(height: 30),
 
-                          CustomformField(
-                            prefixicon: Icons.drive_file_rename_outline_rounded,
-                            hinttext: "Name",
-                            validation: InputValidator.validateUsername,
-                            onchanged: (value) {
-                              controller.name.value = value;
-                            },
-                          ),
-                          SizedBox(height: 10),
+                          ///email textfield...
                           CustomformField(
                             prefixicon: Icons.email,
                             hinttext: "Email",
-                            validation: InputValidator.validateEmail,
                             onchanged: (value) {
                               controller.email.value = value;
                             },
+                            validation: InputValidator.validateEmail,
                           ),
-                          SizedBox(height: 10),
-                          CustomformField(
-                            prefixicon: Icons.phone,
-                            inputType: TextInputType.phone,
-                            hinttext: "Mobile",
-                            validation: InputValidator.validatenumber,
-                            onchanged: (value) {
-                              controller.phone.value = value;
-                            },
-                          ),
-                          SizedBox(height: 10),
-                          CustomformField(
-                            prefixicon: Icons.location_on,
-                            hinttext: "Address",
-                            validation: InputValidator.validateaddress,
-                            onchanged: (value) {
-                              controller.address.value = value;
-                            },
-                          ),
-                          SizedBox(height: 20),
 
-                          ///Submit Button...
+                          const SizedBox(height: 20),
+
+                          ///Login Button...
                           CustomButton(
                             text: "SUBMIT",
                             ontap: () {
                               if (formKey.currentState!.validate()) {
-                                controller.Profile();
+                                controller.LogIn();
                               }
                             },
                           ),
                         ],
                       ),
                     ),
+                    SizedBox(height: 20.0),
+
+                    /// Note...
+                    TextRichOne(
+                      text2:
+                          'Provide your registered email here then click submit button Check your email A message has been sent to your email Click on that message Add new password',
+                      textSize2: 14.0,
+                      textAlign: TextAlign.center,
+                    ),
                   ],
                 ),
               ),
             ),
           ),
-        ));
+        ),
+        floatingActionButton: BackFloatingbutton()
+    );
   }
 }

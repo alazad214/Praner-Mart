@@ -31,5 +31,23 @@ class InputValidator {
       return 'Username must be at least 3 characters long';
     }
     return null;
+  } // Validate phone
+
+  static String? validatenumber(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your Phone';
+    }
+    if (value.length <= 11) {
+      return 'Phone must be at least 11 characters long';
+    }
+    return null;
+  }
+
+  static String? validateaddress(String? value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter your address';
+    }
+
+    return null;
   }
 }

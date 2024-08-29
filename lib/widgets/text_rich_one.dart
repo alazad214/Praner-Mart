@@ -9,19 +9,23 @@ class TextRichOne extends StatelessWidget {
       this.text2,
       this.textSize1,
       this.textSize2,
-      this.ontap});
+      this.ontap, this.textAlign});
   final String? text1;
   final String? text2;
   final textSize1;
   final textSize2;
   final ontap;
+  final textAlign;
 
   @override
   Widget build(BuildContext context) {
     return InkWell(
       onTap: ontap,
-      child: Text.rich(TextSpan(children: [
+      child: Text.rich(
+        textAlign: textAlign??TextAlign.start,
+          TextSpan(children: [
         TextSpan(
+
             text: text1,
             style: TextStyle(
                 color: AppColor.white,
