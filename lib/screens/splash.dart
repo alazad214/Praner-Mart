@@ -4,10 +4,10 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/screens/navigation_screen.dart';
 import 'package:pranermart/screens/welcome_screen.dart';
+import 'package:pranermart/utils/colors.dart';
 
 class Splash extends StatefulWidget {
   const Splash({super.key});
-
   @override
   State<Splash> createState() => _SplashState();
 }
@@ -29,25 +29,28 @@ class _SplashState extends State<Splash> {
 
   @override
   Widget build(BuildContext context) {
-    final screenSize = MediaQuery.of(context).size;
-    return LayoutBuilder(builder: (context, constaints) {
-      return Scaffold(
-        body: SafeArea(
-            child: ListView(
-          children: [
-            Container(
-              height: screenSize.height / 1,
-              alignment: Alignment.center,
-              child: Center(
-                child: Image.asset(
-                  "assets/images/applogo.png",
-                  height: 200,
-                ),
+    return Scaffold(
+      backgroundColor: AppColor.primary,
+      body: Center(
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              Image.asset(
+                "assets/images/applogo.png",
+                height: 100,
               ),
-            )
-          ],
-        )),
-      );
-    });
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 100),
+                child: LinearProgressIndicator(
+                  color: Colors.green,
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              )
+            ],
+          ),
+        ),
+      ),
+    );
   }
 }

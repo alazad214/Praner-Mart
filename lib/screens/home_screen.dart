@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/utils/payment_method.dart';
+import 'package:pranermart/utils/images.dart';
 import 'package:pranermart/widgets/category.dart';
 import 'package:pranermart/widgets/contact_ui.dart';
 import 'package:pranermart/widgets/custom_slider.dart';
@@ -92,9 +92,9 @@ class HomeScreen extends StatelessWidget {
                           spacing: 10,
                           runSpacing: 10,
                           children: [
-                            for (int i = 0; i < PaymentData.length; i++)
+                            for (int i = 0; i < AppImagas.length; i++)
                               Image.asset(
-                                PaymentData[i],
+                                AppImagas[i],
                                 height: 60,
                               )
                           ],

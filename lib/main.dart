@@ -6,8 +6,8 @@ import 'package:pranermart/screens/splash.dart';
 
 import 'firebase_options.dart';
 
+///This is Finally Ecommerce Project in Firebse
 void main() async {
-
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
     options: DefaultFirebaseOptions.currentPlatform,

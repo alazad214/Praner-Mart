@@ -1,12 +1,12 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:get_storage/get_storage.dart';
+
 
 import '../model/user_profile_model.dart';
 
 class FireStoreService extends GetxController {
-  var box = GetStorage();
+
   final FirebaseFirestore firestore = FirebaseFirestore.instance;
   final user = FirebaseAuth.instance.currentUser!.email;
 
