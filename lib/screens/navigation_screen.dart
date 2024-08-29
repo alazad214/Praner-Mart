@@ -4,7 +4,7 @@ import 'package:pranermart/screens/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'card_screen.dart';
-import '../app/home/home_screen.dart';
+import '../app/home/views/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   NavigationScreen({super.key});

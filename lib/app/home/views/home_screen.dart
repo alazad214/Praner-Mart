@@ -1,5 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:iconsax/iconsax.dart';
+import 'package:pranermart/app/home/widgets/home_appbar.dart';
+import 'package:pranermart/utils/app_config.dart';
+import 'package:pranermart/utils/colors.dart';
 import 'package:pranermart/utils/images.dart';
 import 'package:pranermart/widgets/category.dart';
 import 'package:pranermart/widgets/contact_ui.dart';
@@ -8,29 +12,28 @@ import 'package:pranermart/widgets/search_bar.dart';
 import 'package:pranermart/widgets/search_dialog.dart';
 import 'package:pranermart/widgets/single_product.dart';
 import 'package:pranermart/widgets/text_icon_widgets.dart';
-
-import '../../widgets/custom_drawer.dart';
+import '../../../widgets/custom_drawer.dart';
 
 class HomeScreen extends StatelessWidget {
   HomeScreen({super.key});
   final controller = Get.put(SearchDialog());
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
-    final w = MediaQuery.of(context).size.width;
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Colors.blue.withOpacity(0.6),
-        actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.more_vert))
-        ],
+      key: _scaffoldKey,
+      appBar: HomeAppbar(
+        onPressed: () => _scaffoldKey.currentState!.openDrawer(),
       ),
-      body: SafeArea(
-          child: SingleChildScrollView(
+      body: SingleChildScrollView(
         child: Column(
           children: [
+            ///Silders
             CustomSlider(),
+
+            ///Search Products
             CustomSearchBar(
               ontap: () {
                 controller.SearchItemDialog(context);
@@ -112,7 +115,7 @@ class HomeScreen extends StatelessWidget {
             )
           ],
         ),
-      )),
+      ),
       drawer: CustomDrawer(),
     );
   }
