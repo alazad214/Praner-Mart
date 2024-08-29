@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:iconsax/iconsax.dart';
 import 'package:pranermart/screens/faviorite_screen.dart';
-import 'package:pranermart/screens/profile_screen.dart';
+import 'package:pranermart/app/profile/views/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
 import 'card_screen.dart';
@@ -17,10 +18,10 @@ class _NavigationScreenState extends State<NavigationScreen> {
   var _currentIndex = 0;
 
   final _pages = [
-     HomeScreen(),
+    HomeScreen(),
     const CartScreen(),
     const FavioriteScreen(),
-     ProfileScreen()
+    ProfileScreen()
   ];
 
   @override
@@ -33,41 +34,41 @@ class _NavigationScreenState extends State<NavigationScreen> {
         items: [
           /// Home
           SalomonBottomBarItem(
-              icon: const Icon(Icons.home_outlined),
+              icon: const Icon(Iconsax.home),
               title: const Text("Home"),
               selectedColor: Colors.blueGrey,
               activeIcon: const Icon(
-                Icons.home_filled,
+                Iconsax.home5,
                 color: Colors.blue,
               )),
 
           /// Likes
           SalomonBottomBarItem(
-              icon: const Icon(Icons.shopping_cart_outlined),
+              icon: const Icon(Iconsax.shopping_bag),
               title: const Text("Cart"),
               selectedColor: Colors.pink,
               activeIcon: const Icon(
-                Icons.shopping_cart,
-                color: Colors.blue,
+                Iconsax.shopping_bag,
+                color: Colors.red,
               )),
 
           /// Search
           SalomonBottomBarItem(
-              icon: const Icon(Icons.favorite_outline),
+              icon: const Icon(Iconsax.heart),
               title: const Text("Favorite"),
               selectedColor: Colors.orange,
               activeIcon: const Icon(
-                Icons.favorite,
-                color: Colors.blue,
+                Iconsax.heart5,
+                color: Colors.red,
               )),
 
           /// Profile
           SalomonBottomBarItem(
-              icon: const Icon(Icons.person),
-              title: const Text("Profile"),
+              icon: Icon(Iconsax.setting),
+              title: const Text("Settings"),
               selectedColor: Colors.teal,
-              activeIcon: const Icon(
-                Icons.person,
+              activeIcon: Icon(
+                Iconsax.setting,
                 color: Colors.blue,
               )),
         ],
