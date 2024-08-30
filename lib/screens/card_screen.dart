@@ -14,7 +14,6 @@ class CartScreen extends StatelessWidget {
   }
 
   Widget _buildCartItemsList() {
-
     final List<Map<String, dynamic>> cartItems = [
       {
         'title': 'Product 1',
@@ -133,7 +132,7 @@ class CartScreen extends StatelessWidget {
           SizedBox(height: 16),
           ElevatedButton(
             onPressed: () {
-              // Implement checkout functionality
+
             },
             style: ElevatedButton.styleFrom(
               padding: EdgeInsets.symmetric(vertical: 16),
