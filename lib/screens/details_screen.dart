@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 
 class Details_Screen extends StatelessWidget {
-  final QueryDocumentSnapshot<Map<String, dynamic>>? data;
+  final data;
   const Details_Screen({super.key, required this.data});
 
   @override
@@ -29,7 +29,7 @@ class Details_Screen extends StatelessWidget {
                     bottomLeft: Radius.circular(15),
                     bottomRight: Radius.circular(15))),
             child: CachedNetworkImage(
-              imageUrl: data?["image"],
+              imageUrl: data["image"],
               placeholder: (context, url) =>
                   const Center(child: CircularProgressIndicator()),
               errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -43,7 +43,7 @@ class Details_Screen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    data?["name"],
+                    data["name"],
                     maxLines: 1,
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
@@ -69,7 +69,7 @@ class Details_Screen extends StatelessWidget {
               children: [
                 Expanded(
                   child: Text(
-                    "৳ " + data?["d_price"],
+                    "৳ ${data['price']}",
                     overflow: TextOverflow.ellipsis,
                     style: const TextStyle(
                         color: Colors.green,
@@ -78,7 +78,7 @@ class Details_Screen extends StatelessWidget {
                   ),
                 ),
                 Text(
-                  "৳ " + data?["o_price"],
+                  "৳ ${data['discount_price']}",
                   overflow: TextOverflow.ellipsis,
                   style: const TextStyle(
                       color: Colors.red,
@@ -93,7 +93,7 @@ class Details_Screen extends StatelessWidget {
           const Padding(
             padding: EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              "Discription",
+              "Description",
               style: TextStyle(
                   color: Colors.white,
                   fontWeight: FontWeight.w500,
@@ -103,7 +103,7 @@ class Details_Screen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              data?["dis"],
+              data?["description"],
               style: TextStyle(
                   color: Colors.white60.withOpacity(0.5), fontSize: 16),
             ),
