@@ -1,7 +1,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 
-import 'package:pranermart/screens/navigation_screen.dart';
+import 'package:pranermart/app/nav%20screen/navigation_screen.dart';
 
 import '../views/login.dart';
 import '../views/profile_setup.dart';

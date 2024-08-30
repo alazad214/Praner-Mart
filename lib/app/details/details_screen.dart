@@ -1,11 +1,11 @@
 import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
-import 'package:pranermart/widgets/custom_button.dart';
+import 'package:get/get.dart';
+import '../../widgets/custom_button.dart';
 
 class Details_Screen extends StatelessWidget {
   final data;
-  const Details_Screen({super.key, required this.data});
+  Details_Screen({Key? key, required this.data}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -16,7 +16,6 @@ class Details_Screen extends StatelessWidget {
       ),
       body: SingleChildScrollView(
           child: Column(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Container(
@@ -103,7 +102,7 @@ class Details_Screen extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: Text(
-              data?["description"],
+              data?["description"] ?? '',
               style: TextStyle(
                   color: Colors.white60.withOpacity(0.5), fontSize: 16),
             ),
@@ -114,8 +113,11 @@ class Details_Screen extends StatelessWidget {
                 children: [
                   Expanded(
                       child: CustomButton(
-                    ontap: () {},
-                    text: "Add to card",
+                    ontap: () {
+                      Get.snackbar("Success", "Added to cart!",
+                          snackPosition: SnackPosition.BOTTOM);
+                    },
+                    text: "Add to Cart",
                   )),
                   const SizedBox(width: 10),
                   Expanded(

@@ -4,12 +4,12 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:get/get_core/src/get_main.dart';
+import 'package:pranermart/app/category/utls/categories.dart';
 import 'package:pranermart/app/product/product_page.dart';
 import 'package:pranermart/utils/colors.dart';
 
 class Category extends StatelessWidget {
   Category({super.key});
-  final List<String> categories = ['Electronics', 'Fashion', 'Books', 'Toys'];
 
   @override
   Widget build(BuildContext context) {
@@ -37,21 +37,15 @@ class Category extends StatelessWidget {
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                     children: [
-                      CachedNetworkImage(
-                        height: 70,
+                      Image.asset(
+                        categoriesImage[index],
+                        height: 50,
                         width: 90,
                         fit: BoxFit.cover,
-                        imageUrl:
-                            "https://firebasestorage.googleapis.com/v0/b/curious-athlete-417715.appspot.com/o/products%2Fheadphone.jpg?alt=media&token=cf3df6ef-581d-479e-8798-1978adf12c2c",
-                        placeholder: (context, url) =>
-                            const Center(child: CircularProgressIndicator()),
-                        errorWidget: (context, url, error) => Icon(
-                          Icons.error,
-                          color: Colors.white,
-                        ),
                       ),
                       Text(
                         categories[index],
+                        overflow: TextOverflow.ellipsis,
                         style: TextStyle(fontWeight: FontWeight.bold),
                       ),
                     ],

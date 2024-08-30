@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/screens/details_screen.dart';
+import 'package:pranermart/app/details/details_screen.dart';
 import '../../utils/colors.dart';
 
 class ProductsPage extends StatelessWidget {
@@ -24,7 +24,7 @@ class ProductsPage extends StatelessWidget {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return Center(child: CircularProgressIndicator());
           } else if (!snapshot.hasData || snapshot.data!.docs.isEmpty) {
-            return Center(child: Text('No products found in $category'));
+            return Center(child: Text('$category Products are out of stock'));
           } else {
             final products = snapshot.data!.docs;
             return ListView.builder(

@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../../screens/navigation_screen.dart';
+import '../../nav screen/navigation_screen.dart';
 
 class ProfileController extends GetxController {
   RxString email = RxString("");

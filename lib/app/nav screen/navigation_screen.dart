@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:pranermart/screens/faviorite_screen.dart';
+import 'package:pranermart/app/faviorite/faviorite_screen.dart';
 import 'package:pranermart/app/profile/views/profile_screen.dart';
 import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 
-import 'card_screen.dart';
-import '../app/home/views/home_screen.dart';
+import '../cart/card_screen.dart';
+import '../home/views/home_screen.dart';
 
 class NavigationScreen extends StatefulWidget {
   NavigationScreen({super.key});

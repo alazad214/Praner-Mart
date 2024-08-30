@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/screens/details_screen.dart';
+import 'package:pranermart/app/details/details_screen.dart';
 
 class SingleProduct extends StatelessWidget {
   SingleProduct({super.key});
@@ -11,7 +11,7 @@ class SingleProduct extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return StreamBuilder(
-        stream: FirebaseFirestore.instance.collection("product").snapshots(),
+        stream: FirebaseFirestore.instance.collection("products").snapshots(),
         builder: (context, snapshot) {
           if (snapshot.connectionState == ConnectionState.waiting) {
             return CircularProgressIndicator();
@@ -66,7 +66,7 @@ class SingleProduct extends StatelessWidget {
                             children: [
                               Expanded(
                                 child: Text(
-                                  "৳ " + data["d_price"],
+                                  "৳ ${data['price']}",
                                   maxLines: 1,
                                   overflow: TextOverflow.fade,
                                   style: const TextStyle(
@@ -77,7 +77,7 @@ class SingleProduct extends StatelessWidget {
                               ),
                               Expanded(
                                 child: Text(
-                                  "৳ " + data["o_price"],
+                                  "৳ ${data['discount_price']}",
                                   textAlign: TextAlign.end,
                                   maxLines: 1,
                                   overflow: TextOverflow.ellipsis,
