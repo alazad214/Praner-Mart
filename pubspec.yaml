@@ -103,6 +103,7 @@ flutter:
    - assets/contact/
    - assets/svg/
    - assets/category/
+   - assets/logo/
   #   - images/a_dot_ham.jpeg
 
   # An image asset can refer to one or more resolution-specific "variants", see

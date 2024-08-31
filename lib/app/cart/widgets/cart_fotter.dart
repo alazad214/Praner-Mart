@@ -6,6 +6,7 @@ class CartFotter extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
+      height: 140,
       padding: EdgeInsets.all(16.0),
       decoration: BoxDecoration(
         color: Colors.white,
