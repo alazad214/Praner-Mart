@@ -1,12 +1,7 @@
-import 'package:cached_network_image/cached_network_image.dart';
-import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:get/get_core/src/get_main.dart';
 import 'package:pranermart/app/category/utls/categories.dart';
 import 'package:pranermart/app/product/product_page.dart';
-import 'package:pranermart/utils/colors.dart';
 
 class Category extends StatelessWidget {
   Category({super.key});
