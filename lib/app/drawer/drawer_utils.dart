@@ -1,8 +1,8 @@
 import 'package:iconsax/iconsax.dart';
 
-import '../about/about_screen.dart';
+import 'about_screen.dart';
 import '../faviorite/faviorite_screen.dart';
-import '../help and support/help_support_screen.dart';
+import 'help_support_screen.dart';
 
 final List<Map<String, dynamic>> navItem = [
   {'icon': Iconsax.user, 'title': 'Profile', 'screen': FavioriteScreen()},

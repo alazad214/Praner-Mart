@@ -3,7 +3,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/details/details_screen.dart';
+import 'package:pranermart/app/product/details_screen.dart';
 
 class SingleProduct extends StatelessWidget {
   SingleProduct({super.key});

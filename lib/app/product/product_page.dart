@@ -2,7 +2,7 @@ import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/details/details_screen.dart';
+import 'package:pranermart/app/product/details_screen.dart';
 import '../../utils/colors.dart';
 
 class ProductsPage extends StatelessWidget {

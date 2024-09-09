@@ -5,8 +5,8 @@ import 'package:pranermart/utils/app_config.dart';
 import 'package:pranermart/utils/colors.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import '../../widgets/text_rich_one.dart';
-import '../auth/views/login.dart';
-import '../auth/views/registation.dart';
+import '../auth/views/logIn_screen.dart';
+import '../auth/views/signup_screen.dart';
 
 class WelcomeScreen extends StatelessWidget {
   const WelcomeScreen({super.key});
@@ -65,7 +65,7 @@ class WelcomeScreen extends StatelessWidget {
                           text: 'SIGN UP',
                           borderRadius: BorderRadius.circular(0),
                           bgColor: AppColor.moonstone,
-                          ontap: () => Get.to(() => Register()),
+                          ontap: () => Get.to(() => SignUpScreen()),
                         ),
                       ),
                     ],

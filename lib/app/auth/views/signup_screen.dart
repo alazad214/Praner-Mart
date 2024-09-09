@@ -2,15 +2,16 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
+import '../../../style/textfiled_style.dart';
 import '../../../utils/colors.dart';
 import '../../../widgets/back_floatingButton.dart';
 import '../../../widgets/text_rich_one.dart';
 import '../controller/auth_controller.dart';
 import '../utils/inputValidator.dart';
-import 'login.dart';
+import 'logIn_screen.dart';
 
-class Register extends StatelessWidget {
-  Register({super.key});
+class SignUpScreen extends StatelessWidget {
+  SignUpScreen({super.key});
   final controller = Get.put(AuthController());
   final formKey = GlobalKey<FormState>();
   @override
@@ -48,38 +49,40 @@ class Register extends StatelessWidget {
                           SizedBox(height: 30),
 
                           ///email textfield...
-                          CustomformField(
-                            prefixicon: Icons.email,
-                            hinttext: "Email",
-                            onchanged: (value) {
+
+                          TextFormField(
+                            decoration:
+                                appInputDecoretion('Email', Icons.email),
+                            onChanged: (value) {
                               controller.email.value = value;
                             },
-                            validation: InputValidator.validateEmail,
+                            validator: InputValidator.validateEmail,
                           ),
                           SizedBox(height: 10),
 
                           ///password textfield...
-                          CustomformField(
-                            prefixicon: Icons.remove_red_eye_sharp,
-                            hinttext: "Password",
-                            obscuretext: true,
-                            validation: InputValidator.validatePassword,
-                            onchanged: (value) {
+                          TextFormField(
+                            decoration: appInputDecoretion(
+                                'Password', Icons.remove_red_eye_sharp),
+                            onChanged: (value) {
                               controller.password.value = value;
                             },
+                            validator: InputValidator.validatePassword,
+                            obscureText: true,
                           ),
                           SizedBox(height: 10),
 
                           ///Confirm password textfield...
-                          CustomformField(
-                            prefixicon: Icons.remove_red_eye_sharp,
-                            hinttext: "Confirm Password",
-                            obscuretext: true,
-                            validation: InputValidator.validatePassword,
-                            onchanged: (value) {
+                          TextFormField(
+                            decoration: appInputDecoretion(
+                                'Confirm Password', Icons.remove_red_eye_sharp),
+                            onChanged: (value) {
                               controller.confirmpassword.value = value;
                             },
+                            obscureText: true,
+                            validator: InputValidator.validatePassword,
                           ),
+
                           const SizedBox(height: 20),
 
                           ///Login Button...

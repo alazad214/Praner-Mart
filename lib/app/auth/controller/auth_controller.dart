@@ -3,7 +3,7 @@ import 'package:get/get.dart';
 
 import 'package:pranermart/app/nav%20screen/navigation_screen.dart';
 
-import '../views/login.dart';
+import '../views/logIn_screen.dart';
 import '../views/profile_setup.dart';
 
 class AuthController extends GetxController {

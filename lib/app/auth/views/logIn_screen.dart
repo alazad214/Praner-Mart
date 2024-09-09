@@ -1,10 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/auth/views/registation.dart';
+import 'package:pranermart/app/auth/views/signup_screen.dart';
+import 'package:pranermart/style/text_style.dart';
+import 'package:pranermart/style/textfiled_style.dart';
 import 'package:pranermart/utils/colors.dart';
 import 'package:pranermart/widgets/custom_button.dart';
 import '../../../widgets/back_floatingButton.dart';
-import '../../../widgets/custom_textField.dart';
 import '../../../widgets/text_rich_one.dart';
 import '../controller/auth_controller.dart';
 import '../utils/inputValidator.dart';
@@ -49,25 +50,25 @@ class LogInScreen extends StatelessWidget {
                           SizedBox(height: 30),
 
                           ///email textfield...
-                          CustomformField(
-                            prefixicon: Icons.email,
-                            hinttext: "Email",
-                            onchanged: (value) {
+                          TextFormField(
+                            decoration:
+                                appInputDecoretion('Email', Icons.email),
+                            onChanged: (value) {
                               controller.email.value = value;
                             },
-                            validation: InputValidator.validateEmail,
+                            validator: InputValidator.validateEmail,
                           ),
+
                           SizedBox(height: 10),
 
                           ///password textfield...
-                          CustomformField(
-                            prefixicon: Icons.remove_red_eye_sharp,
-                            hinttext: "Password",
-                            obscuretext: true,
-                            validation: InputValidator.validatePassword,
-                            onchanged: (value) {
+                          TextFormField(
+                            decoration: appInputDecoretion(
+                                'Password', Icons.remove_red_eye_sharp),
+                            onChanged: (value) {
                               controller.password.value = value;
                             },
+                            validator: InputValidator.validatePassword,
                           ),
 
                           const SizedBox(height: 20),
@@ -83,12 +84,14 @@ class LogInScreen extends StatelessWidget {
                           ),
                           const SizedBox(height: 20),
 
-                          /// Register...
-                          TextRichOne(
-                            text2: 'Forget?',
-                            textSize2: 14.0,
-                            ontap: () => Get.to(() => ForgetPassword()),
-                          ),
+                          /// Forget Password...
+
+                          InkWell(
+                              onTap: () => Get.to(() => ForgetPassword()),
+                              child: Text(
+                                'Forget',
+                                style: head1TextStyle(),
+                              ))
                         ],
                       ),
                     ),
@@ -101,7 +104,7 @@ class LogInScreen extends StatelessWidget {
                       textSize1: 16.0,
                       textSize2: 16.0,
                       ontap: () => Get.to(
-                        () => Register(),
+                        () => SignUpScreen(),
                       ),
                     )
                   ],
