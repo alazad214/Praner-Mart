@@ -10,6 +10,11 @@ class AuthController extends GetxController {
   RxString email = RxString("");
   RxString password = RxString("");
   RxString confirmpassword = RxString("");
+  var isObscure = true.obs;
+
+  void toggleObscureText() {
+    isObscure.value = !isObscure.value;
+  }
 
   final auth = FirebaseAuth.instance;
   final users = FirebaseAuth.instance.currentUser;

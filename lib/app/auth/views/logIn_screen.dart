@@ -51,8 +51,8 @@ class LogInScreen extends StatelessWidget {
 
                           ///email textfield...
                           TextFormField(
-                            decoration:
-                                appInputDecoretion('Email', Icons.email),
+                            decoration: appInputDecoration(
+                                hinttext: 'Email', prefixIcon: Icons.email),
                             onChanged: (value) {
                               controller.email.value = value;
                             },
@@ -62,14 +62,22 @@ class LogInScreen extends StatelessWidget {
                           SizedBox(height: 10),
 
                           ///password textfield...
-                          TextFormField(
-                            decoration: appInputDecoretion(
-                                'Password', Icons.remove_red_eye_sharp),
-                            onChanged: (value) {
-                              controller.password.value = value;
-                            },
-                            validator: InputValidator.validatePassword,
-                          ),
+                          Obx(() {
+                            return TextFormField(
+                              decoration: appInputDecoration(
+                                hinttext: 'Password',
+                                prefixIcon: controller.isObscure.value
+                                    ? Icons.visibility_off
+                                    : Icons.visibility,
+                                ontap: () => controller.toggleObscureText(),
+                              ),
+                              onChanged: (value) {
+                                controller.password.value = value;
+                              },
+                              validator: InputValidator.validatePassword,
+                              obscureText: controller.isObscure.value,
+                            );
+                          }),
 
                           const SizedBox(height: 20),
 

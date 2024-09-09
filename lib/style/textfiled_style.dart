@@ -1,18 +1,27 @@
 import 'package:flutter/material.dart';
 
-InputDecoration appInputDecoretion(hinttext, prefixIcon) {
+InputDecoration appInputDecoration({
+  hinttext,
+  prefixIcon,
+  VoidCallback? ontap,
+}) {
   return InputDecoration(
-    hintText: hinttext ?? " ",
-    prefixIcon: Icon(prefixIcon ?? Icons.email_outlined),
+    hintText: hinttext ?? ' ',
+    prefixIcon: ontap != null
+        ? IconButton(
+            onPressed: ontap,
+            icon: Icon(prefixIcon),
+          )
+        : Icon(prefixIcon),
     filled: true,
     fillColor: Colors.white,
 
-    //enable-->
+    // Enable border
     enabledBorder: OutlineInputBorder(
       borderRadius: BorderRadius.circular(14.0),
       borderSide: const BorderSide(color: Colors.blue, width: 1),
     ),
-    //focus-->
+    // Focus border
     focusedBorder: OutlineInputBorder(
       borderSide: const BorderSide(
         color: Colors.blue,
@@ -20,7 +29,7 @@ InputDecoration appInputDecoretion(hinttext, prefixIcon) {
       ),
       borderRadius: BorderRadius.circular(14.0),
     ),
-    //focus-->
+    // Error border
     errorBorder: OutlineInputBorder(
       borderSide: const BorderSide(
         color: Colors.red,
