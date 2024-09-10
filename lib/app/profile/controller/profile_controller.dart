@@ -11,10 +11,12 @@ class ProfileController extends GetxController {
   RxString name = RxString("");
   RxString address = RxString("");
   RxString phone = RxString("");
-
-  final FirebaseFirestore firestore = FirebaseFirestore.instance;
+  final RxBool isLoading = false.obs;
+  final firestore = FirebaseFirestore.instance;
 
   Profile() async {
+    isLoading.value = true;
+
     await firestore.collection("Users").doc(email.value).set({
       "email": email.value,
       "full_name": name.value,
@@ -22,5 +24,6 @@ class ProfileController extends GetxController {
       "phone_Number": phone.value,
     });
     Get.offAll(() => NavigationScreen());
+    isLoading.value = false;
   }
 }

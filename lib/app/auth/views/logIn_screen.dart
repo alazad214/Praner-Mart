@@ -4,10 +4,10 @@ import 'package:pranermart/app/auth/views/signup_screen.dart';
 import 'package:pranermart/style/text_style.dart';
 import 'package:pranermart/style/textfiled_style.dart';
 import 'package:pranermart/utils/colors.dart';
-import 'package:pranermart/widgets/custom_button.dart';
+import 'package:pranermart/widgets/app_button.dart';
 import '../../../widgets/back_floatingButton.dart';
 import '../../../widgets/text_rich_one.dart';
-import '../controller/auth_controller.dart';
+import '../../../controllers/auth_controller.dart';
 import '../utils/inputValidator.dart';
 import 'forget_password.dart';
 
@@ -30,7 +30,7 @@ class LogInScreen extends StatelessWidget {
                   children: [
                     Container(
                       padding: const EdgeInsets.symmetric(
-                          vertical: 30, horizontal: 20),
+                          vertical: 20, horizontal: 20),
                       width: double.infinity,
                       decoration: BoxDecoration(
                         color: AppColor.cornsilk,
@@ -82,18 +82,19 @@ class LogInScreen extends StatelessWidget {
                           const SizedBox(height: 20),
 
                           ///Login Button...
-                          CustomButton(
-                            text: "LOG IN",
-                            ontap: () {
-                              if (formKey.currentState!.validate()) {
-                                controller.LogIn();
-                              }
-                            },
-                          ),
-                          const SizedBox(height: 20),
+                          Obx(() => AppButton(
+                                isLoading: controller.isLoading.value,
+                                loadingText: 'LOGIN LOADING',
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    controller.LogIn();
+                                  }
+                                },
+                                text: "LOG IN",
+                              )),
 
                           /// Forget Password...
-
+                          const SizedBox(height: 10),
                           InkWell(
                               onTap: () => Get.to(() => ForgetPassword()),
                               child: Text(

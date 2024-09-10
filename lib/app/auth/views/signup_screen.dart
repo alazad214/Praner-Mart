@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/widgets/custom_button.dart';
 import '../../../style/textfiled_style.dart';
 import '../../../utils/colors.dart';
+import '../../../widgets/app_button.dart';
 import '../../../widgets/back_floatingButton.dart';
 import '../../../widgets/text_rich_one.dart';
-import '../controller/auth_controller.dart';
+import '../../../controllers/auth_controller.dart';
 import '../utils/inputValidator.dart';
 import 'logIn_screen.dart';
 
@@ -99,15 +99,17 @@ class SignUpScreen extends StatelessWidget {
 
                           const SizedBox(height: 20),
 
-                          ///Login Button...
-                          CustomButton(
-                            text: "REGISTER",
-                            ontap: () {
-                              if (formKey.currentState!.validate()) {
-                                controller.Register();
-                              }
-                            },
-                          ),
+                          ///Register Button...
+                          Obx(() => AppButton(
+                                isLoading: controller.isLoading.value,
+                                loadingText: 'REGISTER LOADING',
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    controller.Register();
+                                  }
+                                },
+                                text: "REGISTER",
+                              )),
                         ],
                       ),
                     ),

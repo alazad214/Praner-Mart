@@ -38,6 +38,8 @@ dependencies:
 
   #Url Launcher..
   url_launcher: ^6.2.5
+  google_fonts:
+
   #Lottie File
   lottie: ^3.1.0
   get: ^4.6.6

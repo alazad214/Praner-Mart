@@ -3,9 +3,10 @@ import 'package:get/get.dart';
 import 'package:pranermart/utils/colors.dart';
 import 'package:pranermart/widgets/back_floatingButton.dart';
 import 'package:pranermart/widgets/custom_button.dart';
+import '../../../widgets/app_button.dart';
 import '../../../widgets/custom_textField.dart';
 import '../../../widgets/text_rich_one.dart';
-import '../controller/auth_controller.dart';
+import '../../../controllers/auth_controller.dart';
 import '../utils/inputValidator.dart';
 
 class ForgetPassword extends StatelessWidget {
@@ -59,14 +60,16 @@ class ForgetPassword extends StatelessWidget {
                           const SizedBox(height: 20),
 
                           ///Login Button...
-                          CustomButton(
-                            text: "SUBMIT",
-                            ontap: () {
-                              if (formKey.currentState!.validate()) {
-                                controller.LogIn();
-                              }
-                            },
-                          ),
+                          Obx(() => AppButton(
+                                isLoading: controller.isLoading.value,
+                                loadingText: 'SUBMIT',
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    controller.LogIn();
+                                  }
+                                },
+                                text: "SUBMIT",
+                              )),
                         ],
                       ),
                     ),
@@ -85,7 +88,6 @@ class ForgetPassword extends StatelessWidget {
             ),
           ),
         ),
-        floatingActionButton: BackFloatingbutton()
-    );
+        floatingActionButton: BackFloatingbutton());
   }
 }

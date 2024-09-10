@@ -2,8 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/app/auth/utils/inputValidator.dart';
 import 'package:pranermart/widgets/custom_textField.dart';
-
 import '../../../utils/colors.dart';
+import '../../../widgets/app_button.dart';
 import '../../../widgets/custom_button.dart';
 import '../../profile/controller/profile_controller.dart';
 
@@ -84,14 +84,16 @@ class ProfileSetup extends StatelessWidget {
                           SizedBox(height: 20),
 
                           ///Submit Button...
-                          CustomButton(
-                            text: "SUBMIT",
-                            ontap: () {
-                              if (formKey.currentState!.validate()) {
-                                controller.Profile();
-                              }
-                            },
-                          ),
+                          Obx(() => AppButton(
+                                isLoading: controller.isLoading.value,
+                                loadingText: 'SUBMIT LOADING',
+                                onTap: () {
+                                  if (formKey.currentState!.validate()) {
+                                    controller.Profile();
+                                  }
+                                },
+                                text: "SUBMIT",
+                              )),
                         ],
                       ),
                     ),

@@ -1,30 +1,35 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-
 import 'package:pranermart/app/nav%20screen/navigation_screen.dart';
-
-import '../views/logIn_screen.dart';
-import '../views/profile_setup.dart';
+import 'package:pranermart/style/toast_style.dart';
+import '../app/auth/views/logIn_screen.dart';
+import '../app/auth/views/profile_setup.dart';
 
 class AuthController extends GetxController {
+  ///VAriables...
   RxString email = RxString("");
   RxString password = RxString("");
   RxString confirmpassword = RxString("");
   var isObscure = true.obs;
+  final RxBool isLoading = false.obs;
 
+  ///Instance...
+  final auth = FirebaseAuth.instance;
+  final users = FirebaseAuth.instance.currentUser;
+
+  ///Password Toggle Function...
   void toggleObscureText() {
     isObscure.value = !isObscure.value;
   }
 
-  final auth = FirebaseAuth.instance;
-  final users = FirebaseAuth.instance.currentUser;
-
+  ///Firebase Register Funtionality...
   Register() async {
+    isLoading.value = true;
     if (password.value != confirmpassword.value) {
-      Get.snackbar("Invalid password", "Password doesn't matched");
+      ErrorToast("Password doesn't matched");
+      isLoading.value = false;
       return;
     }
-
     try {
       await auth
           .createUserWithEmailAndPassword(
@@ -32,14 +37,19 @@ class AuthController extends GetxController {
           .then((value) {
         if (value.user != null) {
           Get.offAll(ProfileSetup());
+          SuccessToast('Successfully Register');
         }
       });
     } on FirebaseAuthException catch (error) {
-      Get.snackbar("Error", error.message ?? "Something Wrong");
+      ErrorToast("Something Wrong");
+    } finally {
+      isLoading.value = false;
     }
   }
 
+  ///Firebase Login Funtionality...
   LogIn() async {
+    isLoading.value = true;
     try {
       await auth
           .signInWithEmailAndPassword(
@@ -47,22 +57,27 @@ class AuthController extends GetxController {
           .then((value) {
         if (value.user != null) {
           Get.offAll(NavigationScreen());
-          Get.snackbar("Seccess", "Login Successfully");
+          SuccessToast('Successfully Login');
         }
       });
     } on FirebaseAuthException catch (error) {
-      Get.snackbar("Error", error.message ?? "Something Wrong");
+      ErrorToast("Something Wrong");
+    } finally {
+      isLoading.value = false;
     }
   }
 
+  ///Firebase SignOut Funtionality...
   Future signOut() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     try {
       await _auth.signOut().then((value) {
         Get.offAll(LogInScreen());
+        SuccessToast('Successfully SignOut');
       });
     } on FirebaseAuthException catch (e) {
-      Get.snackbar("Error", e.message ?? "something wrong");
+      ErrorToast("Something Wrong");
+      print(e);
     }
   }
 }
