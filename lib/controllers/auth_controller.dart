@@ -71,9 +71,11 @@ class AuthController extends GetxController {
   signOut() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     try {
+      isLoading.value = true;
       await _auth.signOut().then((value) {
         Get.offAll(LogInScreen());
-        SuccessToast('Successfully SignOut');
+        SuccessToast('Successfully Logout');
+        isLoading.value = false;
       });
     } on FirebaseAuthException catch (e) {
       ErrorToast("Something Wrong");
