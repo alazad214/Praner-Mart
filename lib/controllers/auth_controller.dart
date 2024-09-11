@@ -1,6 +1,6 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/nav%20screen/navigation_screen.dart';
+import 'package:pranermart/app/nav%20screen/nav_screen.dart';
 import 'package:pranermart/style/toast_style.dart';
 import '../app/auth/views/logIn_screen.dart';
 import '../app/auth/views/profile_setup.dart';
@@ -56,7 +56,7 @@ class AuthController extends GetxController {
               email: email.value, password: password.value)
           .then((value) {
         if (value.user != null) {
-          Get.offAll(NavigationScreen());
+          Get.offAll(NavScreen());
           SuccessToast('Successfully Login');
         }
       });

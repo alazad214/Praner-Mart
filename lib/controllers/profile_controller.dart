@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../app/nav screen/navigation_screen.dart';
+import '../app/nav screen/nav_screen.dart';
 
 class ProfileController extends GetxController {
   RxString email = RxString("");
@@ -23,7 +23,7 @@ class ProfileController extends GetxController {
       "address": address.value,
       "phone": phone.value,
     });
-    Get.offAll(() => NavigationScreen());
+    Get.offAll(() => NavScreen());
     isLoading.value = false;
   }
 }

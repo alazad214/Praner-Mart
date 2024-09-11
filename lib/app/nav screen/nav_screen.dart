@@ -7,19 +7,19 @@ import 'package:salomon_bottom_bar/salomon_bottom_bar.dart';
 import '../cart/card_screen.dart';
 import '../home/views/home_screen.dart';
 
-class NavigationScreen extends StatefulWidget {
-  NavigationScreen({super.key});
+class NavScreen extends StatefulWidget {
+  NavScreen({super.key});
 
   @override
-  State<NavigationScreen> createState() => _NavigationScreenState();
+  State<NavScreen> createState() => _NavScreenState();
 }
 
-class _NavigationScreenState extends State<NavigationScreen> {
+class _NavScreenState extends State<NavScreen> {
   var _currentIndex = 0;
 
   final _pages = [
     HomeScreen(),
-     CartScreen(),
+    CartScreen(),
     FavioriteScreen(),
     ProfileScreen()
   ];

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/style/text_style.dart';
 import '../../../widgets/app_button.dart';
-import '../../nav screen/navigation_screen.dart';
+import '../../nav screen/nav_screen.dart';
 
 class PassChangeScreen2 extends StatelessWidget {
   PassChangeScreen2({Key? key}) : super(key: key);
@@ -48,7 +48,7 @@ class PassChangeScreen2 extends StatelessWidget {
                 AppButton(
                   text: 'Back to Home',
                   onTap: () {
-                    Get.offAll(() => NavigationScreen());
+                    Get.offAll(() => NavScreen());
                   },
                 ),
                 SizedBox(height: 20),

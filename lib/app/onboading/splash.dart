@@ -2,7 +2,7 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/app/nav%20screen/navigation_screen.dart';
+import 'package:pranermart/app/nav%20screen/nav_screen.dart';
 import 'package:pranermart/app/onboading/welcome_screen.dart';
 import 'package:pranermart/utils/colors.dart';
 
@@ -21,7 +21,7 @@ class _SplashState extends State<Splash> {
       if (user == null) {
         Get.off(const WelcomeScreen());
       } else {
-        Get.offAll(NavigationScreen());
+        Get.offAll(NavScreen());
       }
     });
     super.initState();
