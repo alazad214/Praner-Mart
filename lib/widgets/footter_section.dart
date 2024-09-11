@@ -8,7 +8,7 @@ class FootterSection extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final h = MediaQuery.of(context).size.height;
-    return   Container(
+    return Container(
       decoration: BoxDecoration(color: Colors.blueAccent),
       child: Wrap(
         children: [

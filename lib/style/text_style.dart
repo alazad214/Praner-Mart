@@ -1,25 +1,22 @@
 import 'package:flutter/material.dart';
+import '../utils/colors.dart';
 
-TextStyle head3TextStyle() {
-  return const TextStyle(
-      color: Colors.white70, fontSize: 16.0, fontWeight: FontWeight.bold);
-}
-
-TextStyle head2TextStyle() {
-  return const TextStyle(
-      color: Colors.amberAccent,
-      fontWeight: FontWeight.bold,
-      fontSize: 22.0,
-      fontFamily: "robotomono");
-}
-
-TextStyle head1TextStyle() {
+TextStyle AppTextStyle1(
+    {Color? textColor, FontWeight? fontWeight, double? fontSize}) {
   return TextStyle(
-    color: Colors.blue,
-    fontSize: 16.0,
+    fontSize: fontSize ?? 22.0,
+    color: textColor ?? AppColor.primary,
+    fontWeight: fontWeight ?? FontWeight.bold,
+    fontFamily: "robotomono",
   );
 }
 
-TextStyle headTextStyle() {
-  return const TextStyle(color: Colors.grey, fontSize: 12.0);
+TextStyle AppTextStyle2(
+    {Color? textColor, FontWeight? fontWeight, double? fontSize}) {
+  return TextStyle(
+    fontSize: fontSize ?? 15.0,
+    color: textColor ?? Colors.black.withOpacity(0.6),
+    fontWeight: fontWeight ?? FontWeight.w500,
+    fontFamily: "robotomono",
+  );
 }
