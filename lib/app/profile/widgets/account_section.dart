@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
-import 'package:pranermart/app/profile/views/notifications_screen.dart';
+import 'package:pranermart/app/settings/notification/notifications_screen.dart';
 import 'package:pranermart/app/profile/views/payment_screen.dart';
 import 'package:pranermart/app/profile/widgets/custom_listtile.dart';
 

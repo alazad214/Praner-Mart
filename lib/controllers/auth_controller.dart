@@ -68,7 +68,7 @@ class AuthController extends GetxController {
   }
 
   ///Firebase SignOut Funtionality...
-  Future signOut() async {
+  signOut() async {
     FirebaseAuth _auth = FirebaseAuth.instance;
     try {
       await _auth.signOut().then((value) {
@@ -78,6 +78,17 @@ class AuthController extends GetxController {
     } on FirebaseAuthException catch (e) {
       ErrorToast("Something Wrong");
       print(e);
+    }
+  }
+
+  ///Firebase ForgetPass Functionality...
+  forgetPassword() async {
+    try {
+      isLoading.value = true;
+      await auth.sendPasswordResetEmail(email: email.value);
+      isLoading.value = false;
+    } on FirebaseAuthException catch (e) {
+      ErrorToast('Something Wrong');
     }
   }
 }
