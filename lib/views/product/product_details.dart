@@ -1,13 +1,16 @@
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:iconsax/iconsax.dart';
+import 'package:pranermart/business%20logic/controllers/cart_controller.dart';
 import 'package:pranermart/style/text_style.dart';
 import 'package:pranermart/utils/colors.dart';
 import '../../widgets/small_button.dart';
 
 class ProductDetails extends StatelessWidget {
-  final data;
-  ProductDetails({Key? key, required this.data}) : super(key: key);
+  final product;
+  ProductDetails({Key? key, required this.product}) : super(key: key);
+  final controller = Get.put(CartController());
 
   @override
   Widget build(BuildContext context) {
@@ -39,7 +42,7 @@ class ProductDetails extends StatelessWidget {
                       bottomLeft: Radius.circular(15),
                       bottomRight: Radius.circular(15))),
               child: CachedNetworkImage(
-                imageUrl: data["image"],
+                imageUrl: product["image"],
                 placeholder: (context, url) =>
                     const Center(child: CircularProgressIndicator()),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -51,7 +54,7 @@ class ProductDetails extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(data["name"],
+                  Text(product["name"],
                       maxLines: 1,
                       overflow: TextOverflow.ellipsis,
                       style: AppTextStyle1(fontSize: 16.0)),
@@ -60,13 +63,13 @@ class ProductDetails extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Expanded(
-                        child: Text("৳ ${data['price']}",
+                        child: Text("৳ ${product['price']}",
                             overflow: TextOverflow.ellipsis,
                             style: AppTextStyle1(
                                 fontSize: 18.0, textColor: Colors.green)),
                       ),
                       Text(
-                        "৳ ${data['discount_price']}",
+                        "৳ ${product['discount_price']}",
                         overflow: TextOverflow.ellipsis,
                         style: TextStyle(
                             color: Colors.red,
@@ -85,7 +88,7 @@ class ProductDetails extends StatelessWidget {
                         fontSize: 18),
                   ),
                   Text(
-                    data?["description"] ?? '',
+                    product?["description"] ?? '',
                     style: TextStyle(color: Colors.black45, fontSize: 14),
                   ),
                 ],
@@ -110,6 +113,7 @@ class ProductDetails extends StatelessWidget {
                 child: SmallButton(
                   text: 'Add to cart',
                   bgcolor: AppColor.red,
+                  ontap: () => controller.addToCart(product),
                 ),
               ),
             ],

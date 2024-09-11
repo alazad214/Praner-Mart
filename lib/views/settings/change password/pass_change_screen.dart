@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/Application/settings/change%20password/pass_change_screen2.dart';
 import 'package:pranermart/utils/colors.dart';
+import 'package:pranermart/views/settings/change%20password/pass_change_screen2.dart';
 import 'package:pranermart/widgets/back_floatingButton.dart';
 import '../../../business logic/controllers/auth_controller.dart';
 import '../../../widgets/app_button.dart';

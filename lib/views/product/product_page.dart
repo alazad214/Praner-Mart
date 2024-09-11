@@ -34,7 +34,7 @@ class ProductsPage extends StatelessWidget {
                 var product = products[index];
                 return InkWell(
                   onTap: () =>
-                      Get.to(() => ProductDetails(data: products[index])),
+                      Get.to(() => ProductDetails(product: products[index])),
                   child: Container(
                     height: 120,
                     width: double.infinity,

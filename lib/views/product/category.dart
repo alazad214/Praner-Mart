@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/Application/product/product_page.dart';
 import 'package:pranermart/utils/categories.dart';
+import 'package:pranermart/views/product/product_page.dart';
 
 
 class Category extends StatelessWidget {

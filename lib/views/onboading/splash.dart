@@ -2,12 +2,9 @@ import 'dart:async';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/Application/onboading/welcome_screen.dart';
-
 import 'package:pranermart/utils/colors.dart';
-
+import 'package:pranermart/views/onboading/welcome_screen.dart';
 import '../nav screen/nav_screen.dart';
-
 class Splash extends StatefulWidget {
   const Splash({super.key});
   @override

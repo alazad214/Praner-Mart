@@ -1,9 +1,9 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:get/get.dart';
 import 'package:pranermart/style/toast_style.dart';
-import '../../Application/auth/logIn_screen.dart';
-import '../../Application/nav screen/nav_screen.dart';
-import '../../application/auth/profile_setup.dart';
+import '../../views/auth/logIn_screen.dart';
+import '../../views/auth/profile_setup.dart';
+import '../../views/nav screen/nav_screen.dart';
 
 
 class AuthController extends GetxController {

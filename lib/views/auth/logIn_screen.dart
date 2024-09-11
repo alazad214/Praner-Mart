@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:pranermart/Application/auth/signup_screen.dart';
 import 'package:pranermart/business%20logic/controllers/auth_controller.dart';
 import 'package:pranermart/style/textfiled_style.dart';
 import 'package:pranermart/utils/colors.dart';
+import 'package:pranermart/views/auth/signup_screen.dart';
 import 'package:pranermart/widgets/app_button.dart';
 import '../../style/text_style.dart';
 import '../../widgets/back_floatingButton.dart';

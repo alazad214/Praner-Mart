@@ -5,7 +5,6 @@ import 'package:get/get.dart';
 
 import 'product_details.dart';
 
-
 class SingleProduct extends StatelessWidget {
   SingleProduct({super.key});
 
@@ -33,7 +32,7 @@ class SingleProduct extends StatelessWidget {
               final data = snapshot.data!.docs[index];
               return InkWell(
                 onTap: () {
-                  Get.to(ProductDetails(data: data));
+                  Get.to(ProductDetails(product: data));
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 5),

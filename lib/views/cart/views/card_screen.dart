@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:pranermart/Application/cart/widgets/cart_fotter.dart';
-import 'package:pranermart/Application/cart/widgets/cart_item.dart';
+
+import '../widgets/cart_fotter.dart';
+import '../widgets/cart_item.dart';
+
 
 class CartScreen extends StatelessWidget {
   @override
