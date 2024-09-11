@@ -4,7 +4,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 
 import '../../utils/colors.dart';
-import 'details_screen.dart';
+import 'product_details.dart';
 
 class ProductsPage extends StatelessWidget {
   final String category;
@@ -34,7 +34,7 @@ class ProductsPage extends StatelessWidget {
                 var product = products[index];
                 return InkWell(
                   onTap: () =>
-                      Get.to(() => Details_Screen(data: products[index])),
+                      Get.to(() => ProductDetails(data: products[index])),
                   child: Container(
                     height: 120,
                     width: double.infinity,

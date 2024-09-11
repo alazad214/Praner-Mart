@@ -3,7 +3,8 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:get/get.dart';
 
-import 'details_screen.dart';
+import 'product_details.dart';
+
 
 class SingleProduct extends StatelessWidget {
   SingleProduct({super.key});
@@ -32,7 +33,7 @@ class SingleProduct extends StatelessWidget {
               final data = snapshot.data!.docs[index];
               return InkWell(
                 onTap: () {
-                  Get.to(Details_Screen(data: data));
+                  Get.to(ProductDetails(data: data));
                 },
                 child: Container(
                   padding: const EdgeInsets.symmetric(horizontal: 5),
