@@ -6,6 +6,7 @@ class UserProfile {
   final String uid;
   final String phone;
   final String address;
+
   const UserProfile({
     required this.name,
     required this.email,
@@ -17,11 +18,22 @@ class UserProfile {
   factory UserProfile.fromSnapshot(
       DocumentSnapshot<Map<String, dynamic>> snapshot) {
     final data = snapshot.data()!;
+
     return UserProfile(
-        name: data["name"],
-        email: data["email"],
-        uid: data["uid"],
-        phone: data["phone"],
-        address: data["address"]);
+        name: data["name"] ?? "Unknown",
+        email: data["email"] ?? "No Email",
+        uid: data["uid"] ?? "No UID",
+        phone: data["phone"] ?? "No Phone",
+        address: data["address"] ?? "No Address");
+  }
+
+  toJson() {
+    return {
+      'name': name,
+      'email': email,
+      'phone': phone,
+      'addrss': address,
+      'uid': uid
+    };
   }
 }

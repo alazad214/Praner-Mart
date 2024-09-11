@@ -5,7 +5,7 @@ import 'package:pranermart/widgets/custom_textField.dart';
 import '../../../utils/colors.dart';
 import '../../../widgets/app_button.dart';
 import '../../../widgets/custom_button.dart';
-import '../../profile/controller/profile_controller.dart';
+import '../../../controllers/profile_controller.dart';
 
 class ProfileSetup extends StatelessWidget {
   ProfileSetup({super.key});

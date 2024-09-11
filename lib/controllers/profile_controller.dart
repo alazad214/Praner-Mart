@@ -4,7 +4,7 @@ import 'package:get/get_navigation/get_navigation.dart';
 import 'package:get/get_rx/src/rx_types/rx_types.dart';
 import 'package:get/get_state_manager/get_state_manager.dart';
 
-import '../../nav screen/navigation_screen.dart';
+import '../app/nav screen/navigation_screen.dart';
 
 class ProfileController extends GetxController {
   RxString email = RxString("");
@@ -19,9 +19,9 @@ class ProfileController extends GetxController {
 
     await firestore.collection("Users").doc(email.value).set({
       "email": email.value,
-      "full_name": name.value,
+      "name": name.value,
       "address": address.value,
-      "phone_Number": phone.value,
+      "phone": phone.value,
     });
     Get.offAll(() => NavigationScreen());
     isLoading.value = false;
